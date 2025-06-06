@@ -1,0 +1,15 @@
+# Docker Compose configuration
+
+services:
+  word-split-service:
+    build: .
+    image: word-split-service:latest
+    container_name: word-split-service
+    ports:
+      - "8000:8000"
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
