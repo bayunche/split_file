@@ -14,6 +14,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
+ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
